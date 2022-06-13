@@ -1,5 +1,5 @@
 let products = [
-    {id: "1", "slug": "godzillas-atomic-hot-sauce", "name": "Godzillas Atomic Hot Sauce"}
+    {id: "1", "slug": "godzillas-atomic-hot-sauce", "name": "Godzillas Atomic Hot Sauce", "price": 35}
 ]
 
 const all = () => {
@@ -18,8 +18,9 @@ const update = (id, product) => {
 }
 
 const create = (product) => {
-    products.push(product)
-    return products
+    const id = Number(products[products.length - 1].id) + 1 + ""
+    products.push({ id, ...product })
+    return products[products.length - 1]
 }
 
 const remove = (id) => {
