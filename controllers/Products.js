@@ -5,9 +5,9 @@ const index = (req, res) => {
     res.json(products)
 }
 
-// const form = (req, res) => {
-//     res.send("Product.form will be added at a later time")
-// }
+const form = (req, res) => {
+    res.send("Product.form will be added at a later time")
+}
 
 const show = (req, res) => {
     const product = Products.find(req.params.id)
