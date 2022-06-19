@@ -8,7 +8,7 @@ router.get('/:id', productCtrl.show)
 router.get('/:id/edit', productCtrl.form)
 router.post('/', productCtrl.create)
 router.post('/:id', productCtrl.update)
-router.post('/:id/delete', productCtrl.remove)
+router.get('/:id/delete', productCtrl.remove)
 router.delete('/:id', productCtrl.remove)
 
 module.exports = router
