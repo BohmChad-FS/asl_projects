@@ -5,11 +5,11 @@
     <ul>
         {% for product in products %}
             <li>
-                {{ product.name }} - 
+                {{ product.title }} - 
                 <a href="/products/{{ product.id }}">Edit</a>
                 <a href="/products/{{ product.id }}/delete">Delete</a>
             </li>
         {% endfor %}
-        <a href="/products/new">Create New</a>
+        <a href="/products/new">Create New Product</a>
     </ul>
 {% endblock %}
