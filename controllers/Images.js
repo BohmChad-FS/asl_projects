@@ -26,11 +26,15 @@ const update = async (req, res) => {
     const image = await Image.update(req.body, {
         where: { id: req.params.id }
     })
+    req.imageId = req.params.id
+    next()
     res.redirect('/images/' + req.params.id)
 }
 
 const create = async (req, res) => {
     const image = await Image.create(req.body)
+    req.imageId = image.id
+    next()
     res.redirect('/images/' + image.id)
 }
 
