@@ -1,3 +1,6 @@
+.body {
+  background-color: #f0e8ce;
+}
 .pic {
     max-width: 350px;
 }
@@ -36,12 +39,15 @@
 .title {
     font-size: 1.5rem;
 }
+.link {
+  color: #111;
+}
 
 /* Button CSS from https://getcssscan.com/css-buttons-examples */
 
 .shoelink {
   align-items: center;
-  background-color: #fee6e3;
+  background-color: #39b7ed;
   border: 2px solid #111;
   border-radius: 8px;
   box-sizing: border-box;
@@ -83,7 +89,7 @@
 }
 
 .shoelink:active {
-  background-color: #ffdeda;
+  background-color: #89b6c9;
   outline: 0;
 }
 
@@ -114,7 +120,7 @@
 
 .navbtn:after {
   content: "";
-  background-color: #ffe54c;
+  background-color: #3e79f0;
   width: 100%;
   z-index: -1;
   position: absolute;
@@ -132,5 +138,40 @@
 @media (min-width: 768px) {
   .navbtn {
     padding: 13px 50px 13px;
+  }
+}
+
+.varbtn {
+  background-color: #39b7ed;
+  border: 2px solid #111;
+  border-radius: 30px;
+  box-shadow: #111 4px 4px 0 0;
+  color: #000;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.varbtn:hover {
+  background-color: #89b6c9;
+}
+
+.varbtn:active {
+  box-shadow: #111 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .varbtn {
+    min-width: 120px;
+    padding: 0 25px;
   }
 }
