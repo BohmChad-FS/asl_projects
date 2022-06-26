@@ -10,10 +10,20 @@
             <label>Title: </label> {{ variant.title }}
         </li>
         <li>
+            <label>URL Slug:</label> {{ variant.slug }}
+        </li>
+        <li>
             <label>Price: $</label> {{ variant.price }}
         </li>
         <li>
             <label>Product: </label> {{ product.title }}
+        </li>
+        <li>
+			<label><strong>Description:</strong> </label>
+			<p style="max-width: 450px;"><em>{{ variant.description|raw }}</em></p>
+		</li>
+        <li>
+            <label>Stock Inventory:</label> {{ variant.inventory }}
         </li>
     </ul>
     <p>
