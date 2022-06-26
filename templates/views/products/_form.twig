@@ -7,8 +7,20 @@
         <input type="text" name="title" id="title" value="{{ product.title }}" />
     </div>
     <div>
+        <label for="slug">Slug:</label>
+        <input type="text" name="slug" id="slug" value="{{ product.slug }}" />
+    </div>
+    <div>
         <label for="price">Price:</label>
         <input type="number" step="0.01" name="price" id="price" value="{{ product.price }}" />
+    </div>
+    <div>
+        <label for="description">Product Description:</label>
+        <textarea rows="15" cols="40" name="description" id="description">{{ product.description }}</textarea>
+    </div>
+    <div>
+        <label for="is_published">The product is published?</label>
+        <input type="checkbox" name="is_published" id="is_published" value="true" {% if product.is_published %}checked="checked"{% endif %} />
     </div>
     <div>
         <input type="submit" />
