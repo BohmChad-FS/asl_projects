@@ -1,0 +1,95 @@
+{# {% extends 'layouts/base.twig' %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" type="text/css" href="/public/product-page.css">
+{% endblock %}
+
+{% block title %}{{ product.title }} - {{ variant.title }}{% endblock %}
+
+{% block main_content %}
+<h2>About {{ variant.title }}</h2>
+    <ul style="list-style: none;">
+        <li>
+            <label>Id: </label> {{ variant.id }}
+        </li>
+        <li>
+            <label>Title: </label> {{ variant.title }}
+        </li>
+        <li>
+            <label>URL Slug:</label> {{ variant.slug }}
+        </li>
+        <li>
+            <label>Price: $</label> {{ variant.price }}
+        </li>
+        <li>
+            <label>Product: </label> {{ product.title }}
+        </li>
+        <li>
+			<label><strong>Description:</strong> </label><br />
+			<p style="max-width: 450px;"><em>{{ variant.description|raw }}</em></p>
+		</li>
+        <li>
+            <label>Stock Inventory:</label> {{ variant.inventory }}
+        </li>
+    </ul>
+{% endblock %} #}
+
+
+{# Tried to use my own code, up above, but it only ever showed a blank screen. Copied your source code and began to alter things since it worked.
+Planned to alter more, but mac began to run super slow and abort connection with docker.
+It also will randomly not display the image sometimes, as well as disable all the css on a refresh. I do not know why. #}
+{% extends 'layouts/base.twig' %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" type="text/css" href="/public/app.css">
+{% endblock %}
+
+{% block title %}{{ product.title }} - {{ variant.title }}{% endblock %}
+
+{% block main_content %}
+<div class="itempage">
+	<div>
+		<img class="pic" src="../../../public/images/1.png" alt="" />
+	</div>
+	<div class="center">
+		<h4>
+			<a href="#" class="">
+				{{ product.title }} - {{ variant.title }}
+			</a>
+		</h4>
+		<p>
+			{{ variant.description|raw }}
+		</p>
+		<h3>Cool Styles:</h3>
+		<p class="title">
+			{% for option in product.Variants %}
+				{% if option.id == variant.id %}
+					{{ option.title }}
+				{% else %}
+					| <a class="varbtn" href="/storefront/products/{{ product.slug }}?v={{ option.slug }}">{{ option.title }}</a>
+				{% endif %}
+			{% endfor %}
+		</p>
+		<div class="title">
+			<label>Price : $</label> {{ variant.price }}
+		</div>
+		<div>
+			<p class="title">In Stock : </p>
+			<p class="subtitle">
+				{% if variant.inventory < 5 %}
+					We almost have enough!
+				{% elseif variant.inventory == 0 %}
+					We have all our followers- I mean we don't got em!
+				{% else %}
+					We got em!
+				{% endif %}
+			</p>
+		</div>
+		<br />
+		<button class="varbtn" type="button">
+				Not Working at this Time
+		</button>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,64 @@
+{# {% extends 'layouts/base.twig' %}
+
+{% block title %}The Bestest of Shoes{% endblock %}
+
+{% main_content %}
+    <div>
+        <p>Hello World</p>
+    </div>
+{% endblock %} #}
+
+{# Tried to use my own code, up above, but it only ever showed a blank screen. Copied your source code and began to alter things since it worked.
+Planned to alter more, but mac began to run super slow and abort connection with docker. #}
+
+{% extends 'layouts/base.twig' %}
+
+{% block title %}All Products{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+    <link rel="stylesheet" type="text/css" href="/public/app.css">
+{% endblock %}
+
+{% block main_content %}
+<div>
+    <div class="notacult">
+        <div>
+            <h2 class="spacingright">Window Shoppers</h2>
+        </div>
+        <div>
+            <h5>*Totally not a cult</h5>
+        </div>
+    </div>
+    <hr />
+    <div class="shoediv">
+        <div class="shoecont">
+            {% for product in products %}
+            <div>
+                <div>
+                    <img class="pic" src="../../../public/images/1.png" alt="" />
+                </div>
+                <div class="center">
+                    <h3><a class="shoelink" href="#">{{ product.title }}</a></h3>
+                    <p class=title>New Shoe Styles</p>
+                </div>
+                <div class="center">
+                        {% for variant in product.Variants %}
+                        <a class="shoelink" href="/storefront/products/{{ product.slug }}">{{ variant.title }}</a>
+                        <br />
+                        {% endfor %}
+                    </a>
+                </div>
+                <div class="center title">
+                    For Only ${{ product.price }}
+                </div>
+                <div>
+                    <p class="spacing center">_________________</p>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+    <hr />
+</div>
+{% endblock %}

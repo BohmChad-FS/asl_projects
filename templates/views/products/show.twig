@@ -7,10 +7,20 @@
             <label>Id: </label> {{ product.id }}
         </li>
         <li>
-            <label>Name: </label> {{ product.title }}
+            <label>Title: </label> {{ product.title }}
+        </li>
+        <li>
+            <label>URL Slug:</label> {{ product.slug }}
         </li>
         <li>
             <label>Price: $</label> {{ product.price }}
+        </li>
+        <li>
+            <label>Product Description:</label><br />
+            <p style="max-width: 450px;"><em>{{ product.description|raw }}</em></p>
+        </li>
+        <li>
+            <label>The Product is Published:</label> {{ product.is_published }}
         </li>
     </ul>
     <p>
